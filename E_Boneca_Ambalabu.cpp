@@ -1,11 +1,3 @@
-/*
-**************************************************************
-*Bis'Millah Hir Rah'Manir Rahim == start with the name of \n *
-*                    ALLAH Subhana Tayala                    *
-*                   Author: ALAMGIR HOSSAIN                  *
-*                     CSE 25th ISTT                          *
-**************************************************************
-*/
 #include<bits/stdc++.h>
 #define ll long long
 #define yes cout<<"YES"<<endl;
@@ -28,7 +20,28 @@
 #define Alamgir ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 void solve(){
+    int n; cin>>n;
+    vii a(n);
+    vii cnt(31,0);
     
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        for(int j=0;j<30;j++){
+            cnt[j] += ((a[i]>>j)&1);
+        }
+    }
+    ll ans=0;
+    for(int i=0;i<n;i++){
+        ll x=0;
+        for(int j=0;j<30;j++){
+            bool bit = ((a[i]>>j)&1);
+            if(bit){
+                x += (1LL << j) * (n-cnt[j]);
+            }else x += (1LL << j) * cnt[j];
+        }
+        ans = max(ans,x);
+    }
+    out(ans)
 }
 love{
     Alamgir
