@@ -21,27 +21,24 @@
 using namespace std;
 void solve(){
     int n,k; cin >>n>>k;
-    vii l(n),r(n);
+    vii l(n),r(n),b(n);
     ll sum1=0,sum2=0;
     for(int i=0;i<n;i++){
         cin>>l[i];
-        sum1 += l[i];
     }
     for(int i=0;i<n;i++){
         cin>>r[i];
-        sum2 += r[i];
     }
-    int ans=max(sum1,sum2);
-    if(sum1>=sum2){
-        for(int i=0;i<n;i++){
-            ans += max(0,r[i]-l[i]);
-        }
-    }else{
-        for(int i=0;i<n;i++){
-            ans += max(0,l[i]-r[i]);
-        }
+    ll ans = 0;
+    for(int i=0;i<n;i++){
+        ans += max(l[i],r[i]);
+        b[i] = min(l[i],r[i]);
     }
-    out(ans+k)
+    sort(b.rbegin(),b.rend());
+    for(int i=0;i<k-1;i++){
+        ans += b[i];
+    }
+    out(ans+1)
 }
 love{
     Alamgir
