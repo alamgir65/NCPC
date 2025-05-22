@@ -1,0 +1,1 @@
+{"name":"Local: tmp","url":"d:\\NCPC\\tmp.c","tests":[{"id":1745686174668,"input":"2\n10 5 15\n4 0 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\NCPC\\tmp.c","group":"local","local":true}
