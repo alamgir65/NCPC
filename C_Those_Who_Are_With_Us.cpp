@@ -20,31 +20,33 @@
 #define Alamgir ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 void solve(){
-    int n; cin>>n;
-    vii a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    int ans = imax;
-
+    int n,m; cin>>n>>m;
+    vector<vector<int>> a(n, vector<int>(m));
+    int mx=0;
     for(int i=0;i<n;i++){
-        int mx=imin,mn=imax;
-        for(int j=i+1;j<n;j++){
-            mx = max(mx, a[j]);
-            mn = min(mn, a[j]);
-            if(mx+1 >= a[i] && mn-1 <= a[i]){
-                ans = min(ans, j-i-1);
-            }
+        for(int j=0;j<m;j++){
+            cin>>a[i][j];
+            mx = max(mx, a[i][j]);
         }
-        mx=imin, mn=imax;
-        for(int j=i-1;j>=0;j--){
-            mx = max(mx, a[j]);
-            mn = min(mn, a[j]);
-            if(mx+1 >= a[i] && mn-1 <= a[i]){
-                ans = min(ans, i-j-1);
+    }
+    set<int> rowSet, colSet;
+    vector<pii> vp;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(a[i][j] == mx){
+                vp.pb({i,j});
             }
         }
     }
-    if(ans == imax) out(-1)
-    else out(ans);
+    int row = vp[0].first, col = vp[0].second;
+    for(int i=0;i<vp.size();i++){
+        if(row != vp[i].first) colSet.insert(vp[i].second);
+        if(col != vp[i].second) rowSet.insert(vp[i].first);
+    }
+    
+    if(rowSet.size() <= 1 || colSet.size() <= 1) out(mx-1)
+    else out(mx)
+    
 }
 love{
     Alamgir

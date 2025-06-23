@@ -20,31 +20,12 @@
 #define Alamgir ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
 void solve(){
-    int n; cin>>n;
+    int n,s; cin>>n>>s;
     vii a(n);
     for(int i=0;i<n;i++) cin>>a[i];
-    int ans = imax;
-
-    for(int i=0;i<n;i++){
-        int mx=imin,mn=imax;
-        for(int j=i+1;j<n;j++){
-            mx = max(mx, a[j]);
-            mn = min(mn, a[j]);
-            if(mx+1 >= a[i] && mn-1 <= a[i]){
-                ans = min(ans, j-i-1);
-            }
-        }
-        mx=imin, mn=imax;
-        for(int j=i-1;j>=0;j--){
-            mx = max(mx, a[j]);
-            mn = min(mn, a[j]);
-            if(mx+1 >= a[i] && mn-1 <= a[i]){
-                ans = min(ans, i-j-1);
-            }
-        }
-    }
-    if(ans == imax) out(-1)
-    else out(ans);
+    sort(all(a));
+    int ans = min((abs(s-a[0])+abs(a[n-1]-a[0])), (abs(s-a[n-1])+abs(a[0]-a[n-1])));
+    out(ans);
 }
 love{
     Alamgir

@@ -21,30 +21,15 @@
 using namespace std;
 void solve(){
     int n; cin>>n;
-    vii a(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    int ans = imax;
-
-    for(int i=0;i<n;i++){
-        int mx=imin,mn=imax;
-        for(int j=i+1;j<n;j++){
-            mx = max(mx, a[j]);
-            mn = min(mn, a[j]);
-            if(mx+1 >= a[i] && mn-1 <= a[i]){
-                ans = min(ans, j-i-1);
-            }
-        }
-        mx=imin, mn=imax;
-        for(int j=i-1;j>=0;j--){
-            mx = max(mx, a[j]);
-            mn = min(mn, a[j]);
-            if(mx+1 >= a[i] && mn-1 <= a[i]){
-                ans = min(ans, i-j-1);
-            }
-        }
+    string s; cin>>s;
+    map<char,int> mp;
+    for(auto x:s) mp[x]++;
+    bool ok=true;
+    for(int i=1;i<n-1;i++){
+        if(mp[s[i]] > 1) ok=false;
     }
-    if(ans == imax) out(-1)
-    else out(ans);
+    if(!ok) cout<<"Yes\n";
+    else cout<<"No\n";
 }
 love{
     Alamgir
