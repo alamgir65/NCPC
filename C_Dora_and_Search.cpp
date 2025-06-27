@@ -23,31 +23,27 @@ void solve(){
     int n; cin>>n;
     vii a(n);
     for(int i=0;i<n;i++) cin>>a[i];
-    vector<pii> v(n);
-    vector<pii> rev(n);
-    int mn=imax,mx=imin;
     
-    for(int k=0;k<n;k++){
-        mn=min(a[k],mn);
-        mx=max(mx,a[k]);
-        v[k]={mn,mx};
-    }
-    mn=imax,mx=imin;
-    for(int k=n-1;k>=0;k--){
-        mn=min(a[k],mn);
-        mx=max(mx,a[k]);
-        rev[k]={mn,mx};
-    }
-
-    int i=0,j=0;
-    while(j<n){
-        if(a[j]==v[j].first || a[j]==v[j].second || a[j]==rev[j].first || a[j]==rev[j].second){
-            
+    int i=0,j=n-1;
+    int left=1,right=n;
+    bool ok=true;
+    while(ok && i<j){
+        ok=0;
+        if(a[i]==left || a[i]==right){
+            if(a[i]==left) left++;
+            else right--;
+            i++;
+            ok=1;
         }
-        if(a[i]!=mn && a[i]!=mx && a[j]!=mn && a[j]!=mx){
-            break;
+        if(a[j]==left || a[j]==right){
+            if(a[j]==left) left++;
+            else right--;
+            j--;
+            ok=1;
         }
     }
+    if(j>i) out2(i+1,j+1)
+    else out(-1)
 }
 love{
     Alamgir
