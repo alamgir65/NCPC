@@ -16,6 +16,7 @@ void testCase() {
     if (mx == a[i]) ans[i] = '1';
   }
   cout << ans << "\n";
+  ///
 }
 int main() {
   ios::sync_with_stdio(false);
