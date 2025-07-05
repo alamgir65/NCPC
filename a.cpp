@@ -1,66 +1,33 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 #define ll long long
+#define yes cout<<"YES"<<endl;
+#define no cout<<"NO"<<endl;
+#define cyes cout<<"Yes"<<endl;
+#define cno cout<<"No"<<endl;
+#define all(x) x.begin(), x.end()
+#define nl cout<<endl;
+#define endl '\n'
+#define love int main()
+#define vtr vector
+#define pii pair<int,int>
+#define out(x) cout << x << '\n';
+#define out2(x,y) cout << x << " " << y << '\n';
+#define vii vector<int> 
+#define vll vector<ll>
+#define imax INT_MAX
+#define imin INT_MIN
+#define pb push_back
+#define Alamgir ios_base::sync_with_stdio(false), cin.tie(0),cout.tie(0);
 using namespace std;
-
-int position(vector<pair<ll,int>> v){
-    int cnt = 0;
-    sort(v.rbegin(), v.rend()); // directly sort in descending order
-    for(auto u : v){
-        if(u.second != 1) cnt++;
-        else return cnt;
-    }
-    return cnt;
+void solve(){
+    
 }
-
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); // for fast input-output
-
-    int t; cin >> t;
-    while(t--){
-        int n; cin >> n;
-        int a[n][n];
-        vector<pair<ll,int>> v;
-        int l = INT_MAX, r = INT_MIN;
-
-        for(int i = 0; i < n; i++){
-            ll tmp = 0;
-            for(int j = 0; j < n; j++){
-                cin >> a[i][j];
-                l = min(a[i][j], l);
-                r = max(a[i][j], r);
-                tmp += a[i][j];
-            }
-            v.push_back({tmp, i+1});
-        }
-
-        int x = position(v);
-        int ans = -1;
-
-        while(l <= r){
-            int mid = (l + r) / 2; // ✅ fixed this line
-            vector<pair<ll,int>> v2;
-
-            for(int i = 0; i < n; i++){
-                ll tmp = 0;
-                for(int j = 0; j < n; j++){
-                    tmp += min(a[i][j], mid);
-                }
-                v2.push_back({tmp, i+1});
-            }
-
-            int pos = position(v2);
-
-            if(pos >= x){
-                ans = mid;
-                r = mid - 1;
-            } else {
-                l = mid + 1;
-            }
-        }
-
-        cout << ans << endl;
+love{
+    Alamgir
+    int t=1; 
+    cin>>t;
+    for(int i=1;i<=t;i++){
+        solve();
     }
-
-    return 0;
+    return 0;    
 }
