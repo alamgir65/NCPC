@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
@@ -6,11 +6,10 @@ class Node
     public:
         int val;
         Node* next;
-
    Node(int val)
    {
-        this->val =val;
-        this->next =NULL;
+    this->val =val;
+    this->next =NULL;
    }
 };
 void insert_at_tail(Node* &head,Node* &tail,int val)
@@ -61,10 +60,11 @@ int get_size(Node* head)
 }
 void delete_at_any_pos(Node*& head, int idx)
 {
+    cout << "Deleting at index: " << idx << endl;
     if (head == NULL) return;
 
     if (idx < 0 || idx >= get_size(head)) {
-        // cout << "Invalid index" << endl;
+        cout << "Invalid index" << endl;
         return;
     }
 
@@ -78,7 +78,7 @@ void delete_at_any_pos(Node*& head, int idx)
     Node* current = head;
     for(int i = 1; i < idx; i++) {
         current = current->next;
-        // cout<<"Hello world"<<endl;
+        cout<<"Hello world"<<endl;
 
     }
 
@@ -86,25 +86,46 @@ void delete_at_any_pos(Node*& head, int idx)
     current->next = current->next->next;
     delete to_delete;
 }
+
+
 int main()
 {
-    Node* head = NULL;
-    Node* tail = NULL;
-    int t; cin >> t;
-    while (t--) {
-        int x, v; cin >> x >> v;
-        // cout<<x<< " " << v << endl;
-        if(x == 0){
-            insert_at_head(head, v);
-        }
-        else if(x == 1){
-            insert_at_tail(head, tail, v);
-        }
-        else if(x == 2){
-            delete_at_any_pos(head, v);
-        }
-        print_linked_list(head);
+
+    ios_base::sync_with_stdio(false);
+    int t; cin>>t;
+    while(t--){
+        int x,v; cin>>x>>v;
+        cout << x << " " << v << endl;
     }
+
+
+    // int Q;
+    // cin >> Q;
+    // Node* head = NULL;
+    // Node* tail = NULL;
+
+    // for (int i = 0; i < Q; i++) 
+    // {
+    //     // cout<<"Test Case "<<i+1<<":\n";
+    //     int X, V;
+    //     cin >> X >> V;
+    //     cout<< X << " " << V << endl;
+    //     if (X == 0)
+    //     {
+    //       insert_at_head(head, V);
+    //     }
+    //     else if (X == 1)
+    //     {
+    //       insert_at_tail(head,tail, V);
+    //     }
+    //     else if (X == 2)
+    //     {
+    //     //     cout<<"Position to delete: "<< V << endl;
+    //     //   delete_at_any_pos(head, V);
+    //     }
+
+    //     // print_linked_list(head);
+    // }
 
     return 0;
 }
