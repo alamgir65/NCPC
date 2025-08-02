@@ -13,7 +13,7 @@ console.log(t);
 
 console.log(person.khalu);
 
-
+//////
 const myObject = {
  a: 1,
  b: 2,
