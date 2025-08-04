@@ -1,5 +1,5 @@
 /** Problem -02 ( Cycle or Laptop ) */
-var money = 9999;
+var money = 25001;
 //write your code here
 
 if(money >= 25000){
