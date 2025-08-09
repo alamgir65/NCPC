@@ -88,7 +88,7 @@ for(var i = 1; i <= experience; i++)
 {
     currentSalary += currentSalary * 0.05;
 }
-
+L
 console.log(currentSalary.toFixed(2));
 
 
