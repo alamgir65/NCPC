@@ -12,6 +12,8 @@
         "initializer_list": "cpp",
         "regex": "cpp",
         "valarray": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp"
     }
 }
