@@ -88,9 +88,22 @@ for(var i = 1; i <= experience; i++)
 {
     currentSalary += currentSalary * 0.05;
 }
-L
+
 console.log(currentSalary.toFixed(2));
 
 
 
 // Hudai 
+ let x = null;
+console.log(typeof x);
+
+
+const nums = [1, 2, 3, 4, 5,2];
+// console.log(nums.indexOf(2));
+nums.unshift(0);
+
+console.log(nums.length);
+
+name = "Mewo";
+name.toUpperCase();
+console.log(name.toUpperCase());
