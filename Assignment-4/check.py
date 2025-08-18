@@ -5,7 +5,8 @@ bgcolor("black")
 h = 0
 # hee
 # Hudai ?
-# agula kore lav ache?
+# agula kore lav ache?\
+# hel
 for i in range(16):
     for j in range(18):
         c = colorsys.hsv_to_rgb(h, 1, 1)
