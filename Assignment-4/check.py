@@ -19,3 +19,4 @@ for i in range(16):
         rt(180)
     circle(40,24)
     done()
+// hudai bhai
