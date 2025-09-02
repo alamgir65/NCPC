@@ -13,7 +13,7 @@ int main() {
     while ((pos = text.find(pattern)) != string::npos) {
         text.erase(pos, pattern.size());
     }
-    /// 
+    ///  hello ak
 
     cout << "After deletion: " << text << "\n";
     return 0;
